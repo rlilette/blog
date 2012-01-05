@@ -11,8 +11,83 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>4.10</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+  		<groupId>org.apache.derby</groupId>
+  		<artifactId>derby</artifactId>
+  		<version>10.8.1.2</version>
+  		<scope>compile</scope>
+	</dependency>
+	<dependency>
+  <groupId>org.hibernate</groupId>
+  <artifactId>hibernate-core</artifactId>
+  <version>3.6.4.Final</version>
+  <scope>compile</scope>
+</dependency>
+<dependency>
+  <groupId>javassist</groupId>
+  <artifactId>javassist</artifactId>
+  <version>3.12.1.GA</version>
+  <scope>compile</scope>
+</dependency>
+<dependency>
+  <groupId>org.slf4j</groupId>
+  <artifactId>slf4j-simple</artifactId>
+  <version>1.6.1</version>
+  <scope>compile</scope>
+</dependency>
+<dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>spring-core</artifactId>
+  <version>3.0.5.RELEASE</version>
+  <scope>compile</scope>
+</dependency>
+<dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>spring-beans</artifactId>
+  <version>3.0.5.RELEASE</version>
+  <scope>compile</scope>
+</dependency>
+<dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>spring-context</artifactId>
+  <version>3.0.5.RELEASE</version>
+  <scope>compile</scope>
+</dependency>
+<dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>spring-orm</artifactId>
+  <version>3.0.5.RELEASE</version>
+  <scope>compile</scope>
+</dependency>
+<dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>spring-test</artifactId>
+  <version>3.0.5.RELEASE</version>
+  <scope>test</scope>
+</dependency>
+<dependency>
+  <groupId>javax.inject</groupId>
+  <artifactId>javax.inject</artifactId>
+  <version>1</version>
+</dependency>
+<dependency>
+    <groupId>commons-dbcp</groupId>
+    <artifactId>commons-dbcp</artifactId>
+    <version>1.4</version>
+    <scope>compile</scope>
+</dependency>
   </dependencies>
+  <build>
+    <testResources>
+        <testResource>
+            <directory>${basedir}/src/test/java</directory>
+            <includes>
+                <include>**/*.xml</include>
+            </includes>
+        </testResource>
+    </testResources>
+</build>
 </project>

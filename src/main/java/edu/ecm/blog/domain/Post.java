@@ -1,18 +1,51 @@
-package edu.ecm.blog;
+package edu.ecm.blog.domain;
 
-import java.sql.Date;
+import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+
+@Entity
+@Table(name = "post")
 public class Post {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+
+	public Long getId() {
+	  return id;
+	}
+
+	public void setId(Long id) {
+	  this.id = id;
+	}
+	
+	@Column
 	   private String title;
 	   
+	   @Column
+	   @Temporal(TemporalType.TIMESTAMP)
 	   private Date date;
 	   
+	   @Column
 	   private String slug;
 	   
+	   @ManyToOne(optional = true)
 	   private Author author;
 	   
+	   @Column(length = 4000)
 	   private String text;
 	   
+	   @Column
 	   private String tags;
 
 	   public String getTitle() {
