@@ -7,10 +7,13 @@ import javax.inject.Inject;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import edu.ecm.blog.domain.Post;
 
+@Service
 public class PostServiceImpl implements PostService {
 
 	@Inject
@@ -77,6 +80,38 @@ public class PostServiceImpl implements PostService {
 				.uniqueResult();
 
 		return a.intValue();
+	}
+	
+	/* (non-Javadoc)
+	 * @see edu.ecm.blog.service.PostService#findBySlug(String slug)
+	 */
+	
+	@Override
+	@Transactional
+	public Post findBySlug(String slug){
+		
+		Session session = sessionFactory.getCurrentSession();
+		
+		Criteria criteria = session.createCriteria(Post.class);
+		
+		criteria.add(Restrictions.eq("slug", slug));
+		
+		@SuppressWarnings("unchecked")
+		List<Post> posts = criteria.list();
+		
+		if (posts.isEmpty()){
+			return null;
+		}
+		else{
+			return posts.get(0);
+		}
+		
+	}
+	
+	@Override
+	@Transactional
+	public Post findById(Long Id){
+		return null;
 	}
 
 }

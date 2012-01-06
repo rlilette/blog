@@ -13,5 +13,7 @@ public interface PostService {
 	public List find(int pageIndex, int pageSize);
 
 	public int count();
+	
+	public Post findBySlug(String slug);
 
 }

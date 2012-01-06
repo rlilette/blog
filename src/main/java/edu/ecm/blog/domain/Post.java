@@ -12,87 +12,86 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-
 @Entity
 @Table(name = "post")
 public class Post {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
 	public Long getId() {
-	  return id;
+		return id;
 	}
 
 	public void setId(Long id) {
-	  this.id = id;
+		this.id = id;
 	}
-	
+
 	@Column
-	   private String title;
-	   
-	   @Column
-	   @Temporal(TemporalType.TIMESTAMP)
-	   private Date date;
-	   
-	   @Column
-	   private String slug;
-	   
-	   @ManyToOne(optional = true)
-	   private Author author;
-	   
-	   @Column(length = 4000)
-	   private String text;
-	   
-	   @Column
-	   private String tags;
+	private String title;
 
-	   public String getTitle() {
-	      return title;
-	   }
+	@Column
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date date = new Date();
 
-	   public void setTitle(String title) {
-	      this.title = title;
-	   }
+	@Column
+	private String slug;
 
-	   public Date getDate() {
-	      return date;
-	   }
+	@ManyToOne(optional = true)
+	private Author author;
 
-	   public void setDate(Date date) {
-	      this.date = date;
-	   }
+	@Column(length = 4000)
+	private String text;
 
-	   public String getSlug() {
-	      return slug;
-	   }
+	@Column
+	private String tags;
 
-	   public void setSlug(String slug) {
-	      this.slug = slug;
-	   }
-
-	   public Author getAuthor() {
-	      return author;
-	   }
-
-	   public void setAuthor(Author author) {
-	      this.author = author;
-	   }
-
-	   public String getText() {
-	      return text;
-	   }
-
-	   public void setText(String text) {
-	      this.text = text;
-	   }
-
-	   public String getTags() {
-	      return tags;
-	   }
-
-	   public void setTags(String tags) {
-	      this.tags = tags;
-	   }
+	public String getTitle() {
+		return title;
 	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public String getSlug() {
+		return slug;
+	}
+
+	public void setSlug(String slug) {
+		this.slug = slug;
+	}
+
+	public Author getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(Author author) {
+		this.author = author;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	public String getTags() {
+		return tags;
+	}
+
+	public void setTags(String tags) {
+		this.tags = tags;
+	}
+}
